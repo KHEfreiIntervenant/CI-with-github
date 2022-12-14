@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
                 pip3 install -r requirements.txt
             }
         }
