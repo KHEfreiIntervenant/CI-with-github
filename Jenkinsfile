@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                python -m pip install --upgrade pip
-                pip install requirements.txt
-                python -m unittest
+                sh 'virtualenv venv && . venv/bin/activate && pip install -r requirements.txt && python -m unittest'
             }
         }
     }
