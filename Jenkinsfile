@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'python -m pip install --upgrade pip && pip install -r requirements.txt && python -m unittest'
             }
         }
     }
