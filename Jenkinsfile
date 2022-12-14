@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo 'Hello World'
                 pip3 install -r requirements.txt
-                python3 -m unittest
             }
         }
     }
