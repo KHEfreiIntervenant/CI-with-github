@@ -45,6 +45,10 @@ def hello_name(name):
     """
     return jsonify({"hello": name})
 
+@app.route("/api/hello/lovelive")
+def hello_lovelive():
+    return jsonify({"hey hey hey": "START:DASH"})
+
 @app.route("/api/whoami")
 def whoami():
     """
