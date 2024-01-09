@@ -35,13 +35,13 @@ jobs:
         pytest
 
     - name: Build Docker image
-          run: |
-            docker build -t noah4575/image-prod:latest .
+      run: |
+        docker build -t noah4575/image-prod:latest .
 
-        - name: Log in to DockerHub
-          run: |
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+    - name: Log in to DockerHub
+      run: |
+        echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
-        - name: Push Docker image to DockerHub
-          run: |
-            docker push your-dockerhub-username/your-image-name:latest
+    - name: Push Docker image to DockerHub
+      run: |
+        docker push your-dockerhub-username/your-image-name:latest
