@@ -2,45 +2,44 @@ pipeline {
     agent any
 
     environment {
-     
+        // 设置环境变量，比如代码仓库
+        GIT_URL = 'https://github.com/300tty/CI-with-github.git'
     }
 
     stages {
         stage('Checkout') {
             steps {
-   
-                checkout scm
+                
+                git(url: "${GIT_URL}", branch: 'main')
             }
         }
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                sh 'pip install -r requirements.txt'
-            }
-        }
-        stage('Run Application') {
-            steps {
+                
+                sh 'echo "Replace this line with your build command"'
+              
                
-                sh 'python app.py &'
             }
         }
         stage('Test') {
             steps {
-               
-                sh 'python -m unittest'
+                
+                sh 'echo "Replace this line with your test command"'
+             
+                // sh 'pytest'
             }
         }
     }
     post {
-        always {
       
-            sh 'pkill -f "python app.py"'
+        always {
+            echo 'This will always run'
         }
         success {
-            echo 'Build and Test Stages Succeeded!'
+            echo 'Build was a success!'
         }
         failure {
-            echo 'Build or Test Failed.'
+            echo 'Build failed!'
         }
     }
 }
-
