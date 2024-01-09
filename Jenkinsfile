@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // 设置环境变量，比如代码仓库
+      
         GIT_URL = 'https://github.com/300tty/CI-with-github.git'
     }
 
@@ -26,7 +26,7 @@ pipeline {
                 
                 sh 'echo "Replace this line with your test command"'
              
-                // sh 'pytest'
+                
             }
         }
     }
