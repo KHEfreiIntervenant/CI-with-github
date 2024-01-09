@@ -15,7 +15,7 @@ class FlaskTestCase(unittest.TestCase):
     def test_hello(self):
         response = self.app.get('/api/hello')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json, {'Hey': 'world'})
+        self.assertEqual(response.json, {'Heyy': 'world'})
 
     def test_hello_name(self):
         response = self.app.get('/api/hello/ben')
