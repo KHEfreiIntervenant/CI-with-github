@@ -1,18 +1,46 @@
 pipeline {
     agent any
 
+    environment {
+     
+    }
+
     stages {
-        stage('build from github') {
+        stage('Checkout') {
             steps {
-                echo 'fetch code'
-                echo 'build code'
+   
+                checkout scm
             }
         }
-        stage('test from github') {
+        stage('Install Dependencies') {
             steps {
-                echo 'running test1'
-                echo 'running test2'
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Run Application') {
+            steps {
+               
+                sh 'python app.py &'
+            }
+        }
+        stage('Test') {
+            steps {
+               
+                sh 'python -m unittest'
             }
         }
     }
+    post {
+        always {
+      
+            sh 'pkill -f "python app.py"'
+        }
+        success {
+            echo 'Build and Test Stages Succeeded!'
+        }
+        failure {
+            echo 'Build or Test Failed.'
+        }
+    }
 }
+
