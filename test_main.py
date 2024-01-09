@@ -15,12 +15,12 @@ class FlaskTestCase(unittest.TestCase):
     def test_hello(self):
         response = self.app.get('/api/hello')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json, {'hello': 'world'})
+        self.assertEqual(response.json, {'Heyy': 'world'})
 
     def test_hello_name(self):
         response = self.app.get('/api/hello/ben')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json, {'hello': 'ben'})
+        self.assertEqual(response.json, {'Hey': 'ben'})
 
     def test_whoami(self):
         response = self.app.get('/api/whoami')
