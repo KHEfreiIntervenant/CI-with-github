@@ -24,7 +24,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.noah4575 }}
           password: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Extract metadata (tags, labels) for Docker
@@ -41,3 +41,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      
+      - name: Debug Info
+        run: |
+          echo "DOCKER_USERNAME: $DOCKER_USERNAME"
+          echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+          # Add more debug information as needed
+
